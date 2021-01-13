@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Definitions from "./components/Definitions/Definitions";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
           />
         )}
       </Container>
+      <Footer />
     </div>
   );
 }
