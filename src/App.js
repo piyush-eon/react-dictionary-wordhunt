@@ -18,7 +18,6 @@ function App() {
       const data = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
-      console.log(data);
       setMeanings(data.data);
     } catch (error) {
       console.log(error);
@@ -65,14 +64,15 @@ function App() {
           justifyContent: "space-evenly",
         }}
       >
-        <div style={{ position: "absolute", top: 0, right: 0, paddingTop: 10 }}>
+        <div
+          style={{ position: "absolute", top: 0, right: 15, paddingTop: 10 }}
+        >
           <span>{LightTheme ? "Dark" : "Light"} Mode</span>
           <PurpleSwitch
             checked={LightTheme}
             onChange={() => setLightTheme(!LightTheme)}
           />
         </div>
-
         <Header
           setWord={setWord}
           category={category}
@@ -86,6 +86,7 @@ function App() {
             meanings={meanings}
             word={word}
             LightTheme={LightTheme}
+            category={category}
           />
         )}
       </Container>
