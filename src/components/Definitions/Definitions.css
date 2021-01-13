@@ -25,8 +25,6 @@
 .singleMean {
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  color: black;
   border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 0;

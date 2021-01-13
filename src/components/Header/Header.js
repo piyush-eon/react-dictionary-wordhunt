@@ -4,13 +4,20 @@ import "./Header.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import countries from "../../data/category";
 
-const Header = ({ category, setCategory, setWord, word, setMeanings }) => {
+const Header = ({
+  category,
+  setCategory,
+  setWord,
+  word,
+  setMeanings,
+  LightTheme,
+}) => {
   const darkTheme = createMuiTheme({
     palette: {
       primary: {
-        main: "#fff",
+        main: LightTheme ? "#000" : "#fff",
       },
-      type: "dark",
+      type: LightTheme ? "light" : "dark",
     },
   });
 
