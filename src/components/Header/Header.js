@@ -1,8 +1,9 @@
 import { createMuiTheme, TextField, ThemeProvider } from "@material-ui/core";
-import React from "react";
+import React, { useCallback } from "react";
 import "./Header.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import countries from "../../data/category";
+import { debounce } from "lodash";
 
 const Header = ({
   category,
@@ -27,6 +28,15 @@ const Header = ({
     setMeanings([]);
   };
 
+  const deb = useCallback(
+    debounce((text) => setWord(text), 1000),
+    []
+  );
+
+  const handleText = (text) => {
+    deb(text);
+  };
+
   return (
     <div className="header">
       <span className="title">{word ? word : "Word Hunt"}</span>
@@ -35,9 +45,9 @@ const Header = ({
           <TextField
             className="search"
             id="filled-basic"
-            value={word}
+            // value={word}
             label="Search a Word"
-            onChange={(e) => setWord(e.target.value)}
+            onChange={(e) => handleText(e.target.value)}
           />
           <TextField
             select
