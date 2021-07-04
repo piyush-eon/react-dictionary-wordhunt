@@ -1,5 +1,5 @@
 import { createMuiTheme, TextField, ThemeProvider } from "@material-ui/core";
-import React, { useCallback } from "react";
+import React from "react";
 import "./Header.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import countries from "../../data/category";
@@ -28,14 +28,7 @@ const Header = ({
     setMeanings([]);
   };
 
-  const deb = useCallback(
-    debounce((text) => setWord(text), 1000),
-    []
-  );
-
-  const handleText = (text) => {
-    deb(text);
-  };
+  const handleText = debounce((text) => setWord(text), 500),
 
   return (
     <div className="header">
