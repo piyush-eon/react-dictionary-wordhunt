@@ -28,7 +28,9 @@ const Header = ({
     setMeanings([]);
   };
 
-  const handleText = debounce((text) => setWord(text), 500),
+    const handleText = debounce((text) => {
+    setWord(text);
+  }, 500);
 
   return (
     <div className="header">
